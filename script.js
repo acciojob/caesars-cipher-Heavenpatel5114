@@ -9,16 +9,19 @@ const lookup = {
   'U': 'H','V': 'I','W': 'J','X': 'K',
   'Y': 'L','Z': 'M', '?': '?', ',': ','
 };
-
-function rot13(encodedStr){
-   let decodedArr = []; // Your Result goes here
-  // Only change code below this line
-
-  return ;//return decodedArr
+function rot13(str) { // LBH QVQ VG!
+  
+  var string = "";
+  for(var i = 0; i < str.length; i++) {
+    var temp = str.charAt(i);
+    if(temp !== " " || temp!== "!" || temp!== "?") {
+       string += String.fromCharCode(13 + String.prototype.charCodeAt(temp));
+    } else {
+      string += temp;
+    }
+  }
+  
+  return string;
 }
 
-// You can test your code by running the above function and printing it to console by pressing the run button at the top. To run it with input 36, uncomment the following line
-
-// console.log(rot13("SERR YBIR? NPPVBWBO"));
-
-module.exports = rot13;
+// Change the inputs below to test
