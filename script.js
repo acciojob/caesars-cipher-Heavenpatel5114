@@ -25,4 +25,3 @@ function rot13(encodedStr){
 	return decodedArr.join(" ")
 }
 module.export=rot13;
-// Change the inputs below to test
