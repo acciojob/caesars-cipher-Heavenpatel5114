@@ -1,5 +1,3 @@
-// Your Script here.
-
 var lookup = {
   'A': 'N','B': 'O','C': 'P','D': 'Q',
   'E': 'R','F': 'S','G': 'T','H': 'U',
@@ -9,19 +7,23 @@ var lookup = {
   'U': 'H','V': 'I','W': 'J','X': 'K',
   'Y': 'L','Z': 'M', '?': '?', ',': ','
 };
-function rot13(encodedStr){
-	const words=encodedStr.split("");
-	let decodedArr=[];
-	for(let i=0;i<words.length;i++){
-		const word=words[i]
-		let decoded_words=''
-		for(let j=0;j<word.length;j++){
-			const char = word.charAt(j)
-			const decoded_char=lookup[char]
-			decoded_word +=decoded_char
+
+function rot13(encodedstr){
+	const words = encodedstr.split(" ");
+	let decodedArr = [];
+
+	for(let i=0; i<words.length; i++){
+		const woed = words[i]
+		let decoded_word = ''
+		for(let j = 0; j<word.length;j++){
+			var char= word.charAt(j)
+			var decoded_char = lookup(char)
+			decoded_word += decoded_char
 		}
-		decodedArr.push(decoded_words)
+		decodedArr.push(decoded_word)
 	}
 	return decodedArr.join(" ")
 }
-module.export=rot13;
+module.exports=rot13;
+
+	
