@@ -9,19 +9,20 @@ const lookup = {
   'U': 'H','V': 'I','W': 'J','X': 'K',
   'Y': 'L','Z': 'M', '?': '?', ',': ','
 };
-function rot13(str) { // LBH QVQ VG!
-  
-  var string = "";
-  for(var i = 0; i < str.length; i++) {
-    var temp = str.charAt(i);
-    if(temp !== " " || temp!== "!" || temp!== "?") {
-       string += String.fromCharCode(13 + String.prototype.charCodeAt(temp));
-    } else {
-      string += temp;
-    }
-  }
-  
-  return string;
+function rot13(encodedStr){
+	const words=encodedStr.split("");
+	let decodedArr=[];
+	for(let i=0;i<words.length;i++){
+		const word=words[i]
+		let decoded_words=''
+		for(let j=0;j<word.length;j++){
+			const char = word.charAt(j)
+			const decoded_char=lookup[char]
+			decoded_word +=decoded_char
+		}
+		decodedArr.push(decoded_words)
+	}
+	return decodedArr.join(" ")
 }
-
+module.export=rot13;
 // Change the inputs below to test
